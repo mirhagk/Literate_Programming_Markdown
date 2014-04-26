@@ -24,7 +24,7 @@ Given the input file name we need to generate an output file name. By default we
 
 We find the last `.` and then grab the beginning of the string up until that point.
 
-$outputFileName = $filename.substring(0,$filename.LastIndexOf("."))
+	$outputFileName = $filename.substring(0,$filename.LastIndexOf("."))
 
 Processing
 ---
