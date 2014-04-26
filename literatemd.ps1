@@ -6,4 +6,4 @@ Param(
 	
 $outputFileName = $filename.substring(0,$filename.LastIndexOf("."))
 
-	get-content $filename | where-object { $_.StartsWith("`t") } | select-object { $_.Substring(1) } | set-content $outputFileName
+	get-content $filename | where-object { $_.StartsWith("`t") } | foreach-object { $_.Substring(1) } | set-content "test"
