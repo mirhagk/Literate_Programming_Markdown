@@ -13,8 +13,8 @@ The first part we must define is the parameters for this script.
 
 The first parameter is the name of the file. The parameter is mandatory and the name can be ommitted, just placing it as the first positional argument.
 
-	[Parameter(Mandatory=$True,Position=1)]
-	[string]$fileName
+		[Parameter(Mandatory=$True,Position=1)]
+		[string]$fileName
 	)
 	
 Determining Output filename
@@ -29,4 +29,4 @@ $outputFileName = $filename.substring(0,$filename.LastIndexOf("."))
 Processing
 ---
 
-	get-content $filename | where-object { $_.StartsWith("`t") } | select-object { $_.Substring(1) } | set-content $outputFileName
+	get-content $filename | where-object { $_.StartsWith("`t") } | foreach-object { $_.Substring(1) } | set-content $outputFileName
