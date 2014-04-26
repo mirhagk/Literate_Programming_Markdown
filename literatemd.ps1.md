@@ -39,4 +39,18 @@ We find the last `.` and then grab the beginning of the string up until that poi
 Processing
 ---
 
-	get-content $filename | where-object { $_.StartsWith("`t") } | foreach-object { $_.Substring(1) } | set-content $outputFileName
+Once we've got all the defaults set up, we can go ahead and process the file. The first step is obviously to grab the contents of the file:
+
+	get-content $filename |
+
+Once we have the file contents we want to get only the lines that start with a tab, ignoring everything else.
+
+	where-object { $_.StartsWith("`t") } |
+
+Now that we have only the relevant code lines, we just have to remove the starting tab. We just grab the rest of the string after the tab.
+
+	foreach-object { $_.Substring(1) } |
+
+Then once everything is processed we write it out to the output file.
+
+	set-content $outputFileName
