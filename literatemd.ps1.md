@@ -34,6 +34,7 @@ We find the last `.` and then grab the beginning of the string up until that poi
 
 		$outputFileName = $filename.substring(0,$filename.LastIndexOf("."))
 	}
+	
 
 Processing
 ---
